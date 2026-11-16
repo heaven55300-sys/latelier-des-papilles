@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0f1a">
+<title>Cuisine Futur</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><h1>🍳 Cuisine<span>Futur</span></h1></header>
+<main>
+  <section id="recettes" class="page active">
+    <h2>Mes recettes</h2>
+    <div id="liste"></div>
+  </section>
+
+  <section id="creer" class="page">
+    <h2>Créer une recette</h2>
+    <form id="form">
+      <input id="titre" placeholder="Nom de la recette" required>
+      <label>Nombre de personnes d'origine
+        <input id="portions" type="number" min="1" value="4" required></label>
+      <label>Mode de cuisson
+        <select id="mode">
+          <option>Plaque de cuisson</option>
+          <option>Four</option>
+          <option>Plaque + Four</option>
+          <option>Thermomix</option>
+          <option>Monsieur Cuisine</option>
+          <option>Cookeo</option>
+          <option>Companion</option>
+          <option>Autre robot</option>
+        </select></label>
+      <textarea id="ingredients" rows="6" placeholder="Un ingrédient par ligne&#10;200 g farine&#10;3 oeufs&#10;1/2 l lait"></textarea>
+      <textarea id="etapes" rows="5" placeholder="Étapes de la recette"></textarea>
+      <input id="source" placeholder="Lien source (TikTok, YouTube, Instagram...) optionnel">
+      <button class="btn" type="submit">Enregistrer</button>
+    </form>
+  </section>
+
+  <section id="frigo" class="page">
+    <h2>Scanner mon frigo</h2>
+    <video id="video" autoplay playsinline></video>
+    <canvas id="canvas" hidden></canvas>
+    <div class="row">
+      <button class="btn" id="startCam">Activer la caméra</button>
+      <button class="btn" id="snap">Prendre la photo</button>
+    </div>
+    <img id="photo" alt="">
+    <p class="info">Analyse IA du contenu du frigo : prévue en phase 2.</p>
+  </section>
+
+  <section id="import" class="page">
+    <h2>Importer une recette</h2>
+    <p class="info">Phase 3 : collez ici un lien vidéo ou la description.</p>
+    <textarea id="importTxt" rows="6" placeholder="Lien TikTok / Instagram / Facebook / YouTube ou texte de la recette"></textarea>
+    <button class="btn" id="importBtn">Préparer la recette</button>
+  </section>
+</main>
+<nav>
+  <button data-p="recettes" class="on">📖<small>Recettes</small></button>
+  <button data-p="creer">➕<small>Créer</small></button>
+  <button data-p="frigo">📷<small>Frigo</small></button>
+  <button data-p="import">🔗<small>Import</small></button>
+</nav>
+<script src="app.js"></script>
+</body>
+</html>
