@@ -205,3 +205,26 @@ nav button span svg{width:22px;height:22px;display:block}
 .idea.pic{width:150px;height:176px;display:flex;flex-direction:column;justify-content:flex-end;background-size:cover;background-position:center}
 .idea.pic span{display:none}
 .hero{aspect-ratio:4/3}
+
+/* ===== COURSES ET CREDITS ===== */
+.screen label.ck{display:flex;font-size:15px;line-height:22px;font-weight:400;color:var(--tx);margin:0;position:relative}
+.cadd{display:flex;gap:10px;align-items:center;margin-bottom:14px}
+.cadd input{margin:0;flex:1;border-radius:999px;padding:14px 18px}
+.cadd .pill{flex:none;padding:14px 20px}
+.clist.full{background:#fff;border:1px solid var(--line);border-radius:20px;padding:4px 16px;box-shadow:var(--sh)}
+.clist ul{list-style:none;margin:0;padding:0}
+.clist li{display:flex;align-items:center;gap:6px;border-bottom:1px solid var(--line)}
+.clist li:last-child{border-bottom:0}
+.clist .ck{flex:1;border-bottom:0}
+.clist .tx small{display:block;color:var(--tx2);font-size:12px;line-height:16px}
+.clist .rm{background:none;border:0;color:var(--tx2);font-size:14px;padding:10px}
+.linkbtn{background:none;border:0;color:rgba(255,255,255,.8);text-decoration:underline;font:500 13px 'Plus Jakarta Sans',sans-serif;padding:10px;cursor:pointer}
+#call{display:block;margin:10px auto 0}
+.legal{text-align:center;margin:26px 0 0}
+#addCart{margin-top:22px}
+#credList{display:grid;gap:10px;margin:16px 0 20px}
+.cr{display:flex;gap:12px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:10px;box-shadow:var(--sh)}
+.cr img{width:64px;height:64px;object-fit:cover;border-radius:12px;flex:none;background:var(--navy)}
+.cr b{display:block;font-size:14px;line-height:20px;word-break:break-word}
+.cr span,.cr a{display:block;font-size:12px;line-height:18px;color:var(--tx2);word-break:break-word}
+.cr a{color:var(--cu);font-weight:600;text-decoration:none}
