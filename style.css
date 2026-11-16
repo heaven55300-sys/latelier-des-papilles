@@ -131,3 +131,16 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-grad
 
 /* ===== HERO COMPACT ===== */
 .hero{aspect-ratio:16/10}
+
+/* ===== RECHERCHE WEB ===== */
+#robotbar[hidden],#webbox[hidden]{display:none}
+#robotbar{margin:14px 0 0}
+#robotbar label{color:rgba(255,255,255,.85);font-size:12px;font-weight:500}
+#robotbar select{margin:4px 0 0;border-radius:999px;padding:13px 18px;font-weight:600;border-color:transparent}
+.webbox{margin:14px 0 0;background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px;box-shadow:var(--sh)}
+.webbox h3{font-size:17px;line-height:22px}
+.webbox p{margin:4px 0 0;color:var(--tx2);font-size:14px;line-height:20px}
+.wl{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.wl a{display:inline-flex;align-items:center;gap:6px;background:var(--navy);color:#fff;text-decoration:none;border-radius:999px;padding:10px 14px;font:600 13px 'Plus Jakarta Sans',sans-serif}
+.wl a:first-child{background:var(--cu)}
+#home .bento{margin-top:18px}
