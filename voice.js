@@ -388,7 +388,7 @@ function adjCook(d){
 
 function handle(raw){
   let r=null;
-  try{r=cmd(window.DICO&&DICO.fix?DICO.fix(raw):raw);if(!r&&window.DICO&&DICO.answer)r=DICO.answer(raw,say)}catch(e){r=null}
+  try{const Dc=window.DICO;if(Dc&&Dc.answerFirst)r=Dc.answerFirst(raw,say);if(!r)r=cmd(Dc&&Dc.fix?Dc.fix(raw):raw);if(!r&&Dc&&Dc.answer)r=Dc.answer(raw,say);if(!r&&Dc&&Dc.rescue){const q=Dc.rescue(raw);if(q)r=cmd(q)}if(!r&&Dc&&Dc.log)Dc.log(raw)}catch(e){r=null}
   toast(r?('« '+raw+' » → '+r):('Non compris : « '+raw+' ». Dites « aide » pour les commandes.'),r?4500:6000);
 }
 
@@ -463,5 +463,6 @@ btn.onclick=()=>{
 };
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&on){on=false;ui();try{rec.stop()}catch(e){}}});
 })();
+
 
 

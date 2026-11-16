@@ -258,3 +258,7 @@ nav button span svg{width:22px;height:22px;display:block}
 #wstat.awake{background:linear-gradient(90deg,#C87D55 var(--p,100%),rgba(15,30,54,.94) var(--p,100%))}
 #wstat.awake i{background:#fff}
 #wsw{display:block;width:100%;margin:12px 0 4px;padding:12px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);color:#fff;font:600 14px 'Plus Jakarta Sans',sans-serif}
+
+/* ===== DICO LOG ===== */
+#vlog,#vlogx{display:block;width:100%;margin:16px 0 0;padding:12px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);color:#fff;font:600 14px 'Plus Jakarta Sans',sans-serif}
+#vlogx{background:none;font-weight:500;opacity:.8}
