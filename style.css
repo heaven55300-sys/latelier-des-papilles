@@ -268,3 +268,15 @@ nav button span svg{width:22px;height:22px;display:block}
 .syncbox h3{font-size:17px;line-height:22px}
 .syncbox p{margin:4px 0 0;color:var(--tx2);font-size:13px;line-height:19px}
 .syncbox .row{margin:12px 0 6px}
+
+/* ===== SHARE SHEET ===== */
+#shareSheet{position:fixed;inset:0;z-index:100;background:rgba(15,30,54,.82);display:flex;align-items:flex-end;justify-content:center}
+#shareSheet .sh{width:100%;max-width:560px;background:var(--bg);border-radius:28px 28px 0 0;padding:24px 20px calc(24px + env(safe-area-inset-bottom));display:grid;gap:10px;max-height:92vh;overflow:auto}
+#shareSheet small{color:var(--cu);font-weight:600;text-transform:uppercase;letter-spacing:.05em;font-size:11px}
+#shareSheet h2{font-size:24px;line-height:30px}
+#shareSheet .lk{margin:0;color:var(--tx2);font-size:12px;line-height:16px;word-break:break-all}
+#shareSheet .nt{margin:0;font-size:14px;line-height:20px}
+#shareSheet label{margin:6px 0 0;font-size:12px;font-weight:500;color:var(--tx2)}
+#shareSheet input{margin:0}
+#shareSheet .pill{display:block;text-align:center;text-decoration:none;max-width:none}
+#shareSheet .linkbtn{color:var(--tx2)}
