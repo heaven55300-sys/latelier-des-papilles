@@ -388,7 +388,7 @@ function adjCook(d){
 
 function handle(raw){
   let r=null;
-  try{r=cmd(raw)}catch(e){r=null}
+  try{r=cmd(window.DICO&&DICO.fix?DICO.fix(raw):raw);if(!r&&window.DICO&&DICO.answer)r=DICO.answer(raw,say)}catch(e){r=null}
   toast(r?('« '+raw+' » → '+r):('Non compris : « '+raw+' ». Dites « aide » pour les commandes.'),r?4500:6000);
 }
 
@@ -399,7 +399,7 @@ const ws=document.createElement('button');ws.id='wstat';ws.type='button';
 document.body.appendChild(ws);
 ws.onclick=()=>btn.click();
 const isAwake=()=>Date.now()<awakeUntil;
-function wake(t){
+function wake(t){if(window.DICO&&DICO.wakefix)t=DICO.wakefix(t);
   if(!wakeMode){handle(t);return}
   const m=t.match(/^\s*(?:(?:ok|okay|hey|dis|salut|eh|oh)[\s,]+)?chef(?:fe)?s?\b[\s,.!?:;-]*([\s\S]*)$/i);
   if(m){
@@ -463,4 +463,5 @@ btn.onclick=()=>{
 };
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&on){on=false;ui();try{rec.stop()}catch(e){}}});
 })();
+
 
