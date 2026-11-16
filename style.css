@@ -248,3 +248,13 @@ nav button span svg{width:22px;height:22px;display:block}
 .vh ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 .vh li{background:rgba(255,255,255,.08);border-radius:14px;padding:10px 14px;font-size:14px;line-height:20px}
 #vhx{position:absolute;right:0;top:0;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;font-size:16px}
+
+/* ===== MODE EVEIL ===== */
+@keyframes blip{from{box-shadow:0 0 0 0 rgba(240,176,138,.8)}to{box-shadow:0 0 0 9px rgba(240,176,138,0)}}
+#wstat{position:fixed;right:84px;bottom:calc(112px + env(safe-area-inset-bottom));max-width:calc(100% - 110px);display:flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:10px 14px;background:rgba(15,30,54,.94);color:#fff;font:600 13px/1 'Plus Jakarta Sans',sans-serif;z-index:70;box-shadow:0 6px 18px rgba(15,30,54,.3);cursor:pointer}
+#wstat i{width:9px;height:9px;border-radius:50%;background:#8a93a3;flex:none}
+#wstat.sleep i{background:#F0B08A;animation:blip 1.6s ease-out infinite}
+#wstat.live i{background:#7bd88f}
+#wstat.awake{background:linear-gradient(90deg,#C87D55 var(--p,100%),rgba(15,30,54,.94) var(--p,100%))}
+#wstat.awake i{background:#fff}
+#wsw{display:block;width:100%;margin:12px 0 4px;padding:12px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);color:#fff;font:600 14px 'Plus Jakarta Sans',sans-serif}

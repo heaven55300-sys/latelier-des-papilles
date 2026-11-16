@@ -392,6 +392,49 @@ function handle(raw){
   toast(r?('« '+raw+' » → '+r):('Non compris : « '+raw+' ». Dites « aide » pour les commandes.'),r?4500:6000);
 }
 
+/* MODE EVEIL */
+let wakeMode=localStorage.getItem('atelier_wake')!=='0',awakeUntil=0,wlk=null,wlT=0;
+const WIN=9000;
+const ws=document.createElement('button');ws.id='wstat';ws.type='button';
+document.body.appendChild(ws);
+ws.onclick=()=>btn.click();
+const isAwake=()=>Date.now()<awakeUntil;
+function wake(t){
+  if(!wakeMode){handle(t);return}
+  const m=t.match(/^\s*(?:(?:ok|okay|hey|dis|salut|eh|oh)[\s,]+)?chef(?:fe)?s?\b[\s,.!?:;-]*([\s\S]*)$/i);
+  if(m){
+    awakeUntil=Date.now()+WIN;
+    const rest=m[1].trim();
+    if(rest){handle(rest)}else{toast('Oui ? Je vous écoute.',3000);say('Oui ?')}
+    return;
+  }
+  if(isAwake()){awakeUntil=Date.now()+WIN;handle(t)}
+}
+let lastCls='',lastTxt='';
+setInterval(()=>{
+  if(speaking&&isAwake())awakeUntil=Math.max(awakeUntil,Date.now()+5000);
+  let txt,cls;
+  if(!on){txt='Micro éteint · touchez ici';cls='off'}
+  else if(!wakeMode){txt='Micro actif · parlez';cls='live'}
+  else if(isAwake()){txt='Je vous écoute…';cls='awake'}
+  else{txt='Dites « Chef »';cls='sleep'}
+  if(cls!==lastCls||txt!==lastTxt){ws.className=cls;ws.innerHTML='<i></i><span>'+txt+'</span>';lastCls=cls;lastTxt=txt}
+  if(cls==='awake')ws.style.setProperty('--p',Math.max(0,(awakeUntil-Date.now())/WIN*100)+'%');
+  if(on&&!wlk&&Date.now()-wlT>5000&&'wakeLock' in navigator&&!document.hidden){
+    wlT=Date.now();
+    navigator.wakeLock.request('screen').then(l=>{wlk=l;l.addEventListener('release',()=>{wlk=null})}).catch(()=>{});
+  }
+  if(!on&&wlk){wlk.release().catch(()=>{});wlk=null}
+},200);
+const hv=hp.querySelector('.vh'),p0=hv?hv.querySelector('p'):null;
+if(p0){
+  p0.innerHTML='Touchez le micro une fois, puis dites « <b>Chef</b> » suivi de votre demande, par exemple « Chef, suivant ». Après une commande, vous avez 9 secondes pour en donner une autre sans redire « Chef ».';
+  const sw=document.createElement('button');sw.type='button';sw.id='wsw';
+  const swTxt=()=>{sw.textContent='Mode éveil « Chef » : '+(wakeMode?'activé':'désactivé')};
+  sw.onclick=()=>{wakeMode=!wakeMode;localStorage.setItem('atelier_wake',wakeMode?'1':'0');awakeUntil=0;swTxt()};
+  swTxt();p0.after(sw);
+}
+
 /* ---------- reconnaissance ---------- */
 function ui(){btn.classList.toggle('on',on);btn.setAttribute('aria-pressed',on?'true':'false')}
 function start(){
@@ -401,7 +444,7 @@ function start(){
       if(!e.results[i].isFinal)continue;
       const t=e.results[i][0].transcript.trim();
       if(!t||speaking||Date.now()-lastEnd<700)continue;
-      handle(t);
+      wake(t);
     }
   };
   rec.onerror=e=>{
@@ -415,8 +458,9 @@ btn.onclick=()=>{
   if(!SR){alert('La reconnaissance vocale n\'est pas disponible dans ce navigateur. Utilisez Chrome ou Edge sur Android et PC, ou Safari sur iPhone.');return}
   if(on){micOff('Micro coupé');return}
   on=true;ui();start();
-  toast('Je vous écoute. Touchez ? pour voir les commandes.');
-  say('Je vous écoute.');
+  toast(wakeMode?'Mode éveil : dites « Chef » puis votre demande.':'Je vous écoute. Touchez ? pour voir les commandes.');
+  say(wakeMode?'Dites chef pour me parler.':'Je vous écoute.');
 };
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&on){on=false;ui();try{rec.stop()}catch(e){}}});
 })();
+
