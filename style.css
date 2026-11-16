@@ -310,3 +310,19 @@ nav button span svg{width:22px;height:22px;display:block}
 .iacard h4{font:600 17px/22px 'Playfair Display',serif;margin:0 0 4px}
 .iacard p{margin:2px 0;color:var(--tx2);font-size:13px;line-height:19px}
 .iacard .pill{margin-top:10px;width:100%}
+
+/* ===== STOCK ===== */
+.stockbar{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 14px;margin:10px 0;font-size:13px;line-height:19px;color:var(--tx)}
+.stockbar button{display:block;margin-top:8px;background:none;border:0;padding:0;color:var(--cu);font:600 13px 'Plus Jakarta Sans',sans-serif;text-decoration:underline}
+.have{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;padding:0 0 12px 34px;border-bottom:1px solid var(--line)}
+.have input{width:190px;margin:0;padding:8px 14px;border-radius:999px;font-size:14px}
+.have small{font-size:12px;line-height:16px;color:var(--tx2)}
+.have small.ok{color:#2e7d4f;font-weight:600}
+.have small.ko{color:#b0463d;font-weight:600}
+.have small.base{flex-basis:100%}
+/* ===== STOCK 2 ===== */
+.durnote{font-size:13px;line-height:19px;color:var(--tx2);margin:12px 0 0}
+#cook .durnote{color:rgba(255,255,255,.7);margin:0}
+.have button{border:1px solid var(--line);background:#fff;color:var(--tx2);border-radius:999px;padding:6px 12px;font:500 13px 'Plus Jakarta Sans',sans-serif}
+.have button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.have button.on.no{background:#b0463d;border-color:#b0463d}
