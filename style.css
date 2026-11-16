@@ -286,3 +286,27 @@ nav button span svg{width:22px;height:22px;display:block}
 #mcount{margin:8px 2px 14px}
 #editBtn{margin-top:10px}
 #mine .syncbox{margin-top:28px}
+
+/* ===== ASSISTANT IA ===== */
+#iaCfg label{display:block;margin:10px 0 0;font-size:12px;font-weight:500;color:var(--tx2)}
+#iaCfg input{margin:4px 0 0}
+#iaSheet{position:fixed;inset:0;z-index:100;background:rgba(15,30,54,.82);display:flex;align-items:flex-end;justify-content:center}
+#iaSheet .sh{width:100%;max-width:560px;background:var(--bg);border-radius:28px 28px 0 0;padding:24px 20px calc(24px + env(safe-area-inset-bottom));display:grid;gap:10px;max-height:92vh;overflow:auto}
+#iaSheet small{color:var(--cu);font-weight:600;text-transform:uppercase;letter-spacing:.05em;font-size:11px}
+#iaSheet h2{font-size:24px;line-height:30px}
+#iaSheet .nt{margin:0;font-size:14px;line-height:20px;color:var(--tx2)}
+#iaSheet textarea{margin:0}
+#iaSheet .iack{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--tx)}
+#iaSheet .iack input{width:auto;margin:0}
+#iaSheet .iaerr{margin:0;color:#b0463d;font-size:13px;line-height:18px}
+#iaSheet .linkbtn{color:var(--tx2)}
+#iaBtn{margin-top:22px}
+#iaFridge{margin-top:14px}
+#iaFridge input,#iaFridge select{margin-bottom:12px}
+#iaOut h3{color:#fff;font-size:20px;margin:18px 0 6px}
+.iachips{display:flex;flex-wrap:wrap;gap:8px}
+.iachips span{background:rgba(255,255,255,.14);color:#fff;border-radius:999px;padding:7px 12px;font-size:13px}
+.iacard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:14px 16px;margin-top:12px;box-shadow:var(--sh)}
+.iacard h4{font:600 17px/22px 'Playfair Display',serif;margin:0 0 4px}
+.iacard p{margin:2px 0;color:var(--tx2);font-size:13px;line-height:19px}
+.iacard .pill{margin-top:10px;width:100%}
